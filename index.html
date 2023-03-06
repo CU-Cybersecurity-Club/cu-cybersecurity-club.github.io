@@ -1,6 +1,8 @@
 
 
-<!DOCTYPE html><html dir="ltr" lang="en" class=" home_page home_page_design s_layout1 isFreePackage  "><head>
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class=" home_page home_page_design s_layout1 isFreePackage  ">
+  <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
@@ -8,6 +10,13 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js"></script>
 
   <!-- Status Bar --><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <!-- 152px icon --><link rel="apple-touch-icon" sizes="152x152" href="https://cdn-cms-s.f-static.net/ready_uploads/pwaScreenLogo/pwaImage.png?width=152&height=152&resizeType=pwaIcon&w=&orderScreen=&websiteID=6624042&tranW=&v=css_r156_34926872">
@@ -17,7 +26,8 @@
   <!-- Regular Meta Info --> <title class="s123-js-pjax">CU Cyber Club - CU Cyber Club</title>
   <meta name="description" content="CUCyberClub - CU Cyber Club" class="s123-js-pjax">
   <meta name="keywords" content="" class="s123-js-pjax">
-  <link rel="canonical" href="https://62ef61dd8deb4.site123.me/" class="s123-js-pjax"/> <style>/* cyrillic-ext */
+  <link rel="canonical" href="https://62ef61dd8deb4.site123.me/" class="s123-js-pjax"/>
+<style>/* cyrillic-ext */
 @font-face {
   font-family: 'Arsenal';
   font-style: italic;
@@ -252,6 +262,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }</style> <!-- Facebook Meta Info -->
 
+
 <!-- Website CSS variables -->
     <style>    :root { --global_main_color: #307672; --global_main_color_btn_text_color: #ffffff; --home_text_color: #ffffff; --home_third_background_color: #787878; --home_custom_image_size: 500px; --home_custom_image_width: 262px; --home_text_size_px: 94px; --home_text_size_2_px: 21px; --slogan_text_size_px: 28px; --home_text_size: 94; --home_text_size_2: 21; --slogan_text_size: 28; --home_text_size_px_media: 94px; --home_text_size_2_px_media: 21px; --slogan_text_size_px_media: 28px; --layout_text_align: center; --layout_text_align_rtl: center; --layout_text_box_width: 100%; --layout_left_side_width: 50%; --layout_left_side_width_vh: 50vh; --homepage_layout_height: 100%; --homepage_layout_height_vh: 100vh; --homepage_layout_height_menu_space: 0px; --mainNavMobileHeight: 0px; --homepage_layout_height_opacity_space_top: 0px; --homepage_layout_height_opacity_space_bottom: 0px; --mobileMenuFontSize: 20px; --mobileMenuPagesSpace: 5px; --homepageShapeDividerList_Size: 17%; --layout_bottom_spacing: 0px; --window-height: 100vh; --window-width: 100vw; --menu_font_size: 16px; --menu_pages_space: 1px; --menu_pages_side_padding: 15px; --menu_pages_letter_spacing: 0.5px; --menu_pages_word_spacing: 0px; --menu_thin_border: #e4eddb; --mobileMenuTextAlign: center; --menu_text_color: #000000; --menu_color: #ffffff; --modules_color_text: #000000; --modules_color_text_second: #000000; --inside_modules_color_text: #000000; --sectionsPadding: 75px; --home_text_top_space_1: 57px; --home_text_bottom_space_1: 11px; --home_text_top_space_2: 0px; --home_text_bottom_space_2: 10px; --home_text_top_space_3: 0px; --home_text_bottom_space_3: 10px; --homepage_padding_top: px; --homepage_padding_bottom: 50px; --homepage_main_goal_margin_top: 62px; --homepage_main_goal_margin_bottom: 0px; --homepage_second_goal_margin_top: 0px; --homepage_second_goal_margin_bottom: 0px; --modules_color_second: #ebebeb; --modules_color: #f7f9f8; --footer_back: #333333; --home_background_color: #000000;}
     </style> <!-- Custom CSS --> <!-- Minimize CSS files -->
@@ -261,6 +272,9 @@
     <i class="svg-m s123-icon-converter " data-icon-name="user" style=" mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/user.svg?v=2'); -webkit-mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/user.svg?v=2');" data-ie11-classes="">&nbsp;</i></a></li> -->
     <!-- Menu Action Buttons --> </ul> </div> </div> </nav>
     <!-- Sticky Menu -->
+    <script src="js/app.js"></script>
+    <body onload="firebaseInit()">
+
     <input type="hidden" id="stickyMenu" name="stickyMenu" value="on"> </div>
     <nav id="mainNavMobile" class="navbar-fixed-top"> <div class="navPagesLeft">
       <div class="header-menu-wrapper">
@@ -317,59 +331,6 @@
                <!-- Categories area --><div class="row" style="display:none;"><div class="s123-categories col-xs-12">
                <ul class="items-categories-container"><li data-categories-filter="all"><a href="#">All</a></li></ul></div></div>
                <!-- Items area --><div class="row team-category" data-categories-filter="all">
-        <div class="col-md-3 col-sm-6 s123-col-centered">
-          <div class="team-member s123-box-clean preview-highlighter" data-unique-id="62ef6f298597c">
-            <div class="team-details"><div><h4 class="member-name">Allen Antony</h4></div>
-            <ul class="social"></ul><div><p></p></div></div></div></div>
-        <div class="col-md-3 col-sm-6 s123-col-centered">
-          <div class="team-member s123-box-clean preview-highlighter" data-unique-id="62ef6fb7b1772">
-            <div class="team-details"><div><h4 class="member-name">Kirby Linvill</h4></div>
-            <ul class="social"></ul><div><p></p></div></div></div></div>
-
-        <div class="col-md-3 col-sm-6 s123-col-centered">
-          <div class="team-member s123-box-clean preview-highlighter" data-unique-id="62ef6fa615d97">
-            <div class="team-details"><div><h4 class="member-name">Eloise Morris</h4></div>
-            <ul class="social"></ul><div><p></p></div></div></div></div>
-
-        <div class="col-md-3 col-sm-6 s123-col-centered">
-          <div class="team-member s123-box-clean preview-highlighter" data-unique-id="62ef6f3edfe7e">
-            <div class="team-details"><div><h4 class="member-name">Emmeline Nettles</h4></div>
-            <ul class="social"></ul><div><p></p></div></div></div></div>
-
-        <div class="col-md-3 col-sm-6 s123-col-centered">
-          <div class="team-member s123-box-clean preview-highlighter" data-unique-id="62ef6f6829b2a">
-            <div class="team-details"><div><h4 class="member-name">Siddharth Srinivasan</h4></div>
-            <ul class="social"></ul><div><p></p></div></div></div></div>
-
-        <div class="col-md-3 col-sm-6 s123-col-centered">
-          <div class="team-member s123-box-clean preview-highlighter" data-unique-id="62ef6f819a39b">
-            <div class="team-details"><div><h4 class="member-name">Alexander Juenemann</h4></div>
-            <ul class="social"></ul><div><p></p></div></div></div></div>
-
-        <div class="col-md-3 col-sm-6 s123-col-centered">
-          <div class="team-member s123-box-clean preview-highlighter" data-unique-id="62ef6f9023036">
-            <div class="team-details"><div><h4 class="member-name">Sam Patti</h4></div>
-            <ul class="social"></ul><div><p></p></div></div></div></div>
-
-        <div class="col-md-3 col-sm-6 s123-col-centered">
-          <div class="team-member s123-box-clean preview-highlighter" data-unique-id="62ef6f9c6fcab">
-            <div class="team-details"><div><h4 class="member-name">Jack McDonald</h4></div>
-            <ul class="social"></ul><div><p></p></div></div></div></div>
-
-        <div class="col-md-3 col-sm-6 s123-col-centered">
-          <div class="team-member s123-box-clean preview-highlighter" data-unique-id="62ef6faf1c99b">
-            <div class="team-details"><div><h4 class="member-name">Joey Fattah</h4></div>
-            <ul class="social"></ul><div><p></p></div></div></div></div>
-
-        <div class="col-md-3 col-sm-6 s123-col-centered">
-          <div class="team-member s123-box-clean preview-highlighter" data-unique-id="62ef6fbf9c09e">
-            <div class="team-details"><div><h4 class="member-name">Ryan Andrews</h4></div>
-            <ul class="social"></ul><div><p></p></div></div></div></div>
-
-        <div class="col-md-3 col-sm-6 s123-col-centered">
-          <div class="team-member s123-box-clean preview-highlighter" data-unique-id="62ef6fcad44f3">
-            <div class="team-details"><div><h4 class="member-name">Connor Julson</h4></div>
-            <ul class="social"></ul><div><p></p></div></div></div></div>
 
         </div></div></div>
         </section>
@@ -920,30 +881,37 @@
           </div>
 
           <div class="event clearfix box-primary preview-highlighter" data-unique-id="62ef6d16e3f72">
-          <div class="event-details"><div class="event-title">
-          <h2>Recurring Tech Meetings every Wednesday</h2></div><ul class="event-meta clearfix"><li><i class="svg-m s123-icon-converter " data-icon-name="clock-o" style=" mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/clock-o.svg?v=2'); -webkit-mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/clock-o.svg?v=2');" data-ie11-classes="">&nbsp;</i>8/31/2022 - 12/7/2022 @ 5 PM</li>
-            <li><i class="svg-m s123-icon-converter " data-icon-name="map-marker" style=" mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/map-marker.svg?v=2'); -webkit-mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/map-marker.svg?v=2');" data-ie11-classes="">&nbsp;</i> DLC 1B20</li></ul>
-            <div class="event-content breakable"><p></p></div></div>
-          </div>
-
-          <div class="event clearfix box-primary preview-highlighter" data-unique-id="62ef6d16e3f72">
             <div class="event-details">
               <div class="event-title">
-                <h2>Recurring Policy Meetings every Thursday</h2>
+                <h2>Policy Meeting: Cyber Club Policy Division Intro</h2>
               </div>
               <ul class="event-meta clearfix">
                 <li>
                   <i class="svg-m s123-icon-converter " data-icon-name="clock-o" style=" mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/clock-o.svg?v=2'); -webkit-mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/clock-o.svg?v=2');" data-ie11-classes="">&nbsp;</i>
-                  9/15/2022 - 12/8/2022 @ 6:15 PM
+                  2/10/2023 @ 5 PM
                 </li>
                 <li>
                   <i class="svg-m s123-icon-converter " data-icon-name="map-marker" style=" mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/map-marker.svg?v=2'); -webkit-mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/map-marker.svg?v=2');" data-ie11-classes="">&nbsp;</i>
                   DLC 1B20
                 </li>
+                <li>
+                  <a href="https://docs.google.com/presentation/d/1uSWFdOXth8M_aOEB7H_m4u6HF6JkL4bKJEm_otKgmfw/edit?usp=share_link">
+                    <i class="svg-m s123-icon-converter " data-icon-name="desktop" style=" mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/desktop.svg?v=2'); -webkit-mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/desktop.svg?v=2');" data-ie11-classes="">&nbsp;</i>
+                    <b>Slides</b>
+                  </a>
+                </li>
               </ul>
               <div class="event-content breakable"><p></p></div>
             </div>
           </div>
+
+          <div class="event clearfix box-primary preview-highlighter" data-unique-id="62ef6d16e3f72">
+          <div class="event-details"><div class="event-title">
+          <h2>Recurring Meetings every Friday</h2></div><ul class="event-meta clearfix"><li><i class="svg-m s123-icon-converter " data-icon-name="clock-o" style=" mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/clock-o.svg?v=2'); -webkit-mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/clock-o.svg?v=2');" data-ie11-classes="">&nbsp;</i>8/03/2023 - 5/10/2023 @ 5 PM</li>
+            <li><i class="svg-m s123-icon-converter " data-icon-name="map-marker" style=" mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/map-marker.svg?v=2'); -webkit-mask: url('https://static1.s123-cdn-static-a.com/ready_uploads/svg/map-marker.svg?v=2');" data-ie11-classes="">&nbsp;</i> DLC 1B20</li></ul>
+            <div class="event-content breakable"><p></p></div></div>
+          </div>
+
 
         </div></div></div></div>
         </div>
@@ -1029,4 +997,10 @@
   <input type="hidden" id="magicButtonSettings" value="{&quot;active&quot;:false,&quot;style&quot;:&quot;mainColor&quot;,&quot;items&quot;:{},&quot;greeter&quot;:{&quot;active&quot;:false,&quot;value&quot;:&quot;&quot;},&quot;mobileFullWidth&quot;:false,&quot;siteLogo&quot;:&quot;&quot;,&quot;siteName&quot;:&quot;CU Cyber Club&quot;}">
   <!-- Share Magic Button Settings --> <input type="hidden" id="shareMagicButtonSettings" value="{&quot;active&quot;:false,&quot;items&quot;:{&quot;faceBook&quot;:{&quot;order&quot;:1,&quot;value&quot;:&quot;&quot;}},&quot;siteLogo&quot;:&quot;&quot;,&quot;siteName&quot;:&quot;CU Cyber Club&quot;}"> <!-- All Magic Buttons -->
   <div class="all-magic-buttons"></div> </div></div><!-- Pjax Helper -->
-  <div class="s123-front-last-element hidden"></div></body></html>
+  <div class="s123-front-last-element hidden"></div>
+  
+  <script>
+    
+    
+  </script>
+</body></html>
