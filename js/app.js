@@ -44,10 +44,11 @@ async function addMembers() {
 
 async function addAllEvents() {
     const querySnapshot = await db.collection("events").get();
+	let events = [];
     querySnapshot.forEach((doc) => {
-        const events = doc.data().details;
-        renderEvents(events);
+        events = events.concat(doc.data().details);
     });
+    renderEvents(events);
 }
 
 async function initSemSelector() {
@@ -118,6 +119,7 @@ async function addEventsBySemester(semester) {
 
 function renderEvents(events) {
 
+	events.sort((a, b) => (b.time.seconds - a.time.seconds));
     for (let i = 0; i < events.length; i++) {
         const event = events[i];
         const event_date = event.time.toDate();
