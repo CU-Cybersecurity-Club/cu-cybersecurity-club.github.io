@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <style>
+    ::placeholder {
+        color: black;
+        opacity: .5; /* Firefox */
+    }
     * {
         margin: 0;
         padding: 0;
@@ -19,15 +23,24 @@
         max-height: 100vh;
         margin: auto;
     }
+    .main_doc {
+        /* font-family: 'Arsenal';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/arsenal/v12/wXKpE3kQtZQ4pF3D513sD8Qvt3U7teDT.woff2) format('woff2');
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; */
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
 </style>
-<body>
+<body class=".main_doc">
     <div id="form_container" class="container" style="font-size:x-large; padding-left:auto; padding-right:auto; padding-top:100px; padding-bottom: auto; visibility: visible;">
-        <form style="text-align:center; font-family: var(--font_modules_header),'Dosis',Arial,sans-serif;">
+        <form style="text-align:center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
             <h1 style="font-size: 100px;">Enter the password:</h1>
-            <div style="padding-bottom:30px">
-                <input style="font-size: 50px; text-align: center; height:100px; width: 600px;" placeholder="Super Secret Password" id="text2" /><br />
+            <div style="padding-bottom:30px; padding-top:30px;">
+                <input style="color:black; border-color:black; border-radius: 10px; font-size: 50px; text-align: center; height:100px; width: 600px; background-color: #a1adc2;" placeholder="Super Secret Password" id="text2" /><br />
             </div>
-            <input style="font-size: 50px;height:100px; width: 600px;" type="button" value="Unlock"  onclick="javascript:validate()" />
+            <input style="border-color:black;border-radius: 10px; font-size: 50px;height:100px; width: 600px; background-color: #a1adc2;" type="button" value="Unlock"  onclick="javascript:validate()" />
         </form>
         <script type="text/javascript">
         function validate()
