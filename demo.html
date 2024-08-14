@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .imgbox {
+        display: grid;
+        height: 100%;
+    }
+    .center-fit {
+        max-width: 100%;
+        max-height: 100vh;
+        margin: auto;
+    }
+</style>
 <body>
     <div id="form_container" class="container" style="font-size:x-large; padding-left:auto; padding-right:auto; padding-top:100px; padding-bottom: auto; visibility: visible;">
         <form style="text-align:center; font-family: var(--font_modules_header),'Dosis',Arial,sans-serif;">
@@ -20,7 +35,7 @@
             if(document.getElementById("text2").value == "Cyb3rC!ubRulez" )
             {
                 alert( "You did it! Come to Cyber Club's first meeting of the semester DATE/TIME/LOCATION" );
-                document.getElementById("form_container").style.visibility = "hidden"
+                document.getElementById("form_container").remove()
                 document.getElementById("flyer").style.visibility = "visible"
             }
             else
@@ -33,8 +48,8 @@
       <div style="padding-top: 100px">
         <h1 style="text-align:center; color:white;">Not the password: Cyb3rC!ubRulez</h1>
       </div>
-    <div>
-        <img id="flyer" style="display: block; left:30%; visibility:hidden; position:absolute; top: 10%;" src="https://marketplace.canva.com/EAFJFM2El4s/1/0/1131w/canva-blue-modern-business-flyer-portrait-Q6lDEeiJa5w.jpg">
+    <div class="imgbox">
+        <img class="center-fit"id="flyer" style=" visibility:hidden; float:top;" src="https://marketplace.canva.com/EAFJFM2El4s/1/0/1131w/canva-blue-modern-business-flyer-portrait-Q6lDEeiJa5w.jpg">
     </div>
 </body>
 </html>
