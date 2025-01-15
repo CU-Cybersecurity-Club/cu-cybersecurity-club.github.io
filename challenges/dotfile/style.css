@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap');
+
+html {
+    font-family: "JetBrains Mono", serif;
+    font-size: 1em;
+}
+
+body {
+    margin: 0;
+    padding: 15px 20px;
+    min-height: 99%;
+    width: 100%;
+    min-width: 550px;
+    color: #53ccaa;
+    background: #0d0d0d;
+    overflow-x: hidden;
+    caret-shape: block;
+}
+
+#terminal {
+    padding: 20px;
+    min-height: calc(100vh - 80px);
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    text-shadow: 0 0 2px #53ccaa;
+}
+
+.prompt {
+    color: #53ccaa;
+    margin-right: 8px;
+}
+
+.input {
+    background: transparent;
+    border: none;
+    color: #53ccaa;
+    text-shadow: 0 0 2px #53ccaa;
+
+    outline: none;
+    flex-grow: 1;
+    width: calc(100% - 200px);
+    font-family: "JetBrains Mono", serif;
+    font-size: 1em;
+}
+
+.output-line {
+    color: #ed9cbc;
+    margin: 4px 0;
+    white-space: pre-wrap;
+    line-height: 1.3em;
+    text-shadow: 0 0 2px #ed9cbc;
+}
+
+.error {
+    color: #F6B340;
+    text-shadow: 0 0 2px #F6B340;
+}
+
+.command {
+    color: #53ccaa;
+    text-shadow: 0 0 2px #53ccaa;
+}
+
+a {
+    color: #9C8394;
+    text-decoration: none;
+}
+
+a:hover {
+    background: #53ccaa;
+    color: #0d0d0d;
+}
