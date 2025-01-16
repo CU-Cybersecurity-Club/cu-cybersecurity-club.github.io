@@ -1,0 +1,298 @@
+@font-face {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 400;
+	src: url(./fonts/UbuntuMono-R.woff2) format('woff2');
+}
+@font-face {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 700;
+	src: url(./fonts/UbuntuMono-B.woff2) format('woff2');
+}
+
+
+body {
+	font-family: Ubuntu;
+	color: rgb(215, 215, 215);
+
+	padding: 0px;
+	margin: 0px;
+}
+
+#neofetch {
+	background-color: rgb(10, 10, 10);
+
+	font-size: max(0.7rem, 2.8vmin);
+	line-height: max(0.7rem, 2.8vmin);
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+
+	padding-top: calc(5vh + max(2.4rem, 6.6vmin));
+	padding-right: 10vw;
+	padding-left: 10vw;
+	padding-bottom: 5vh;
+	min-height: calc(90vh - max(2.4rem, 6.6vmin));
+}
+
+@media screen and (max-width: 60rem) {
+	#neofetch {
+		flex-direction: column;
+		gap: 6vh;
+	}
+}
+
+#neofetch-half-1 {
+	font-weight: bold;
+	flex-grow: 0;
+}
+
+#neofetch-half-2 {
+	flex-grow: 1;
+}
+
+.neofetch-item {
+	font-weight: bold;
+	color: #ceb87c;
+}
+
+#topnav {
+	background-color: #ceb87c;
+
+	font-size: max(0.8rem, 2.2vmin);
+	line-height: max(2.4rem, 6.6vmin);
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: left;
+	align-items: center;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+
+	transition: 10ms;
+}
+
+#topnav a {
+	color: black;
+
+	text-align: center;
+	text-decoration: none;
+
+	padding-left: 10px;
+	padding-right: 10px;
+
+	transition: 0.3s;
+}
+
+#topnav a:hover {
+	background-color: white;
+}
+
+#logo {
+	font-weight: bold;
+}
+
+#totop {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+summary {
+	font-size: max(1.2rem, 4vmin);
+
+	padding: 0px;
+	margin: 0px;
+
+	list-style: none;
+}
+summary::-webkit-details-marker {
+	display: none;
+}
+summary:hover {
+	cursor: pointer;
+	color: white;
+}
+
+.section {
+	background-color: black;
+
+	padding-top: 5vh;
+	padding-bottom: 5vh;
+	padding-left: 5vw;
+	padding-right: 5vw;
+}
+
+#meetings-section {
+	background-color: rgb(25, 25, 25);
+}
+
+#events {
+	display: flex;
+	flex-direction: column;
+	gap: 2vh;
+
+	padding-left: 5vw;
+	padding-right: 5vw;
+}
+
+.event {
+	background-color: beige;
+
+	color: black;
+
+	display: flex;
+	flex-direction: column;
+
+	padding-top: 3vh;
+	padding-bottom: 3vh;
+	padding-left: 3vh;
+	padding-right: 3vh;
+
+	max-width: 100%;
+
+	transition: 200ms;
+	border-radius: 10px;
+}
+
+.event:hover {
+	background-color: white;
+}
+
+.event a {
+	color: #be6723;
+	text-decoration: none;
+}
+
+.event-title{
+	font-size: max(0.8rem, 2.8vmin);
+
+	padding-bottom: 2vh;
+}
+
+.event-details {
+	font-size: max(0.7rem, 2vmin);
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: left;
+	align-items: start;
+	gap: 10px;
+}
+
+.event-details div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: left;
+	align-items: start;
+	gap: 5px;
+}
+
+@media screen and (max-width: 32rem) {
+	.event {
+		justify-content: center;
+		align-items: center;
+	}
+	.event-title {
+		text-align: center;
+	}
+	.event-details {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.separator {
+		display: none;
+	}
+}
+
+.event-details img {
+	height: max(0.7rem, 2vmin)
+}
+
+.separator {
+	text-align: center;
+	color: grey;
+}
+
+.center-div {
+	width: 100%;
+	text-align: center;
+}
+
+.form-select {
+	background-color: rgb(240, 240, 240);
+
+	font-family: Ubuntu;
+	font-size: max(0.7rem, 2vmin);
+
+	padding: 3px;
+	margin: 2vh;
+
+	max-width: min-content;
+	align-self: center;
+}
+
+#team-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	padding-top: 2vh;
+	padding-left: 3vw;
+	padding-right: 3vw;
+	padding-bottom: 4.5vh;
+}
+
+#team-container div {
+	background-color: black;
+
+	font-size: max(0.7rem, 2.8vmin);
+	color: #ceb87c;
+
+	text-align: center;
+	align-content: center;
+
+	width: 25%;
+	height: max(2rem, 10vmin);
+}
+
+#contact-section {
+	background-color: rgb(25, 25, 25);
+}
+
+#contacts {
+	font-size: max(0.7rem, 3vmin);
+
+	display: flex;
+	flex-direction: column;
+	gap: 3vh;
+
+	padding: 3vmin;
+
+	justify-content: center;
+	align-items: center;
+}
+
+#contacts a {
+	color: beige;
+	text-decoration: none;
+}
+
+#contacts a:hover {
+	color: white;
+}

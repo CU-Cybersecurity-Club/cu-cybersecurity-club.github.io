@@ -1,113 +1,147 @@
-/**
- * Sets up Justified Gallery.
- */
-if (!!$.prototype.justifiedGallery) {
-  var options = {
-    rowHeight: 140,
-    margins: 4,
-    lastRow: "justify"
-  };
-  $(".article-gallery").justifiedGallery(options);
+// Resize the navbar on scroll from the top
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+	if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+		document.getElementById("topnav").style.fontSize = "max(0.8rem, 1.5vmin)";
+		document.getElementById("topnav").style.lineHeight = "max(2.4rem, 4.5vmin)";
+	} else {
+		document.getElementById("topnav").style.fontSize = "max(0.8rem, 2.2vmin)";
+		document.getElementById("topnav").style.lineHeight = "max(2.4rem, 6.6vmin)";
+	}
 }
 
-$(document).ready(function() {
+// Expand details section when we click on its link in navbar
+function openTarget(href) {
+	var hash = href.substring(1);
+	if(hash) var details = document.getElementById(hash);
+	if(details && details.tagName.toLowerCase() === 'details') details.open = true;
+}
 
-  /**
-   * Shows the responsive navigation menu on mobile.
-   */
-  $("#header > #nav > ul > .icon").click(function() {
-    $("#header > #nav > ul").toggleClass("responsive");
-  });
+// ===== Firebase stuff =====
+var db = null;
 
+// An inferno, opened to swallow you whole
+// Initialize firebase
+async function firebaseInit() {
+	const firebaseConfig = {
+		apiKey: "AIzaSyD-6DKb5XdjbQgAPFTYNqrUUSLCVHUfIrE",
+		authDomain: "cucyberclub-webproject.firebaseapp.com",
+		projectId: "cucyberclub-webproject",
+		storageBucket: "cucyberclub-webproject.appspot.com",
+		messagingSenderId: "760426500521",
+		appId: "1:760426500521:web:99bffb9cd21009df94f4b8",
+		measurementId: "G-Y3DXQEXMYC"
+	};
+	firebase.initializeApp(firebaseConfig);
+	firebase.analytics();
 
-  /**
-   * Controls the different versions of  the menu in blog post articles 
-   * for Desktop, tablet and mobile.
-   */
-  if ($(".post").length) {
-    var menu = $("#menu");
-    var nav = $("#menu > #nav");
-    var menuIcon = $("#menu-icon, #menu-icon-tablet");
+	db = firebase.firestore();
 
-    /**
-     * Display the menu on hi-res laptops and desktops.
-     */
-    if ($(document).width() >= 1440) {
-      menu.css("visibility", "visible");
-      menuIcon.addClass("active");
-    }
+	await initSemSelector();
+	await addEvents("all");
+	await addMembers();
+}
 
-    /**
-     * Display the menu if the menu icon is clicked.
-     */
-    menuIcon.click(function() {
-      if (menu.css("visibility") === "hidden") {
-        menu.css("visibility", "visible");
-        menuIcon.addClass("active");
-      } else {
-        menu.css("visibility", "hidden");
-        menuIcon.removeClass("active");
-      }
-      return false;
-    });
+// Initialize the filter by semester selector
+async function initSemSelector() {
+	const selector = document.getElementById("event-sem-selector");
+	const querySnapshot = await db.collection("events").get();
+	querySnapshot.forEach((doc) => {
+		const option = document.createElement("option");
+		option.value = doc.id;
+		option.innerText = doc.id;
+		selector.appendChild(option);
+	});
+}
 
-    /**
-     * Add a scroll listener to the menu to hide/show the navigation links.
-     */
-    if (menu.length) {
-      $(window).on("scroll", function() {
-        var topDistance = menu.offset().top;
+// This is what is first run to populate the events list.
+// It queries all events, adds them to an array, and then passes that array to renderEvents
+async function addEvents(semester) {
+	let events = [];
+	if (semester === "all") {
+		const querySnapshot = await db.collection("events").get();
+		querySnapshot.forEach((doc) => {
+			events = events.concat(doc.data().details);
+		});
+	}
+	else {
+		const querySnapshot = await db.collection("events").doc(semester).get();
+		events = querySnapshot.data().details;
+	}
+	renderEvents(events);
+}
 
-        // hide only the navigation links on desktop
-        if (!nav.is(":visible") && topDistance < 50) {
-          nav.show();
-        } else if (nav.is(":visible") && topDistance > 100) {
-          nav.hide();
-        }
+// Adds events to the page
+function renderEvents(events) {
+	document.getElementById("events").innerHTML = ""
 
-        // on tablet, hide the navigation icon as well and show a "scroll to top
-        // icon" instead
-        if ( ! $( "#menu-icon" ).is(":visible") && topDistance < 50 ) {
-          $("#menu-icon-tablet").show();
-          $("#top-icon-tablet").hide();
-        } else if (! $( "#menu-icon" ).is(":visible") && topDistance > 100) {
-          $("#menu-icon-tablet").hide();
-          $("#top-icon-tablet").show();
-        }
-      });
-    }
+	// Sorted events by time, with most recent first
+	events.sort((a, b) => (b.time.seconds - a.time.seconds));
 
-    /**
-     * Show mobile navigation menu after scrolling upwards,
-     * hide it again after scrolling downwards.
-     */
-    if ($( "#footer-post").length) {
-      var lastScrollTop = 0;
-      $(window).on("scroll", function() {
-        var topDistance = $(window).scrollTop();
+	for (let i = 0; i < events.length; i++) {
+		const event = events[i];
 
-        if (topDistance > lastScrollTop){
-          // downscroll -> show menu
-          $("#footer-post").hide();
-        } else {
-          // upscroll -> hide menu
-          $("#footer-post").show();
-        }
-        lastScrollTop = topDistance;
+		const event_div = document.createElement("div");
+		event_div.className = "event";
 
-        // close all submenu"s on scroll
-        $("#nav-footer").hide();
-        $("#toc-footer").hide();
-        $("#share-footer").hide();
+		const event_title = document.createElement("div");
+		event_title.className = "event-title";
+		event_title.innerHTML = `${event.name}`;
 
-        // show a "navigation" icon when close to the top of the page, 
-        // otherwise show a "scroll to the top" icon
-        if (topDistance < 50) {
-          $("#actions-footer > #top").hide();
-        } else if (topDistance > 100) {
-          $("#actions-footer > #top").show();
-        }
-      });
-    }
-  }
-});
+		const event_details = document.createElement("div");
+		event_details.className = "event-details";
+
+		event_details.innerHTML += `<div><img src="./images/clock.svg" alt="time"><span>${getReadableDate(event.time.toDate())} @ ${getReadableTime(event.time.toDate())}</span></div>`;
+		event_details.innerHTML += `<span class="separator">/</span>`;
+		event_details.innerHTML += `<div><img src="./images/map-marker.svg" alt="location"><span>${event.location}</span></div>`;
+
+		if ("slides" in event) {
+			event_details.innerHTML += `<span class="separator">/</span>`;
+			event_details.innerHTML += `<div><img src="./images/desktop.svg" alt="slides"><a href="${event.slides}">Slides</a></div>`;
+		}
+		if("recording" in event) {
+			event_details.innerHTML += `<span class="separator">/</span>`;
+			event_details.innerHTML += `<div><img src="./images/video-camera.svg" alt="recording"><a href="${event.recording}">Recording</a></div>`;
+		}
+		if("survey" in event) {
+			event_details.innerHTML += `<span class="separator">/</span>`;
+			event_details.innerHTML += `<div><img src="./images/list-alt.svg" alt="survey"><a href="${event.survey}">Survey</a></div>`;
+		}
+
+		event_div.appendChild(event_title);
+		event_div.appendChild(event_details)
+
+		document.getElementById("events").appendChild(event_div);
+	}
+}
+
+async function addMembers() {
+	let querySnapshot = await db.collection("team").doc("members").get();
+	const names = querySnapshot.data().names;
+	const container = document.getElementById("team-container");
+	for (let i = 0; i < names.length; i++) {
+		const name = names[i];
+		const name_card = document.createElement("div");
+		name_card.innerHTML = `${name}`;
+		container.appendChild(name_card);
+	}
+}
+
+function getReadableDate(date) {
+	const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	const day = date.getDate();
+	const monthIndex = date.getMonth();
+	const year = date.getFullYear();
+	return `${day} ${monthNames[monthIndex]} ${year}`;
+}
+
+function getReadableTime(date) {
+	var hours = date.getHours();
+	var minutes = date.getMinutes();
+	var ampm = hours >= 12 ? 'PM' : 'AM';
+	hours = hours % 12;
+	hours = hours ? hours : 12;
+	minutes = minutes < 10 ? '0'+minutes : minutes;
+	var strTime = hours + ':' + minutes + ' ' + ampm;
+	return strTime;
+}
