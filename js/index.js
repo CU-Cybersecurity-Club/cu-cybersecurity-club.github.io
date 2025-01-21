@@ -58,7 +58,7 @@ function addNextEvent() {
 	var event = events.sort((a, b) => (b.time.seconds - a.time.seconds))[0];
 
 	// Display only if event time has not already passed
-	if (Math.round(Date.now() / 1000) <= event.time.seconds) {
+	if (Math.round(Date.now() / 1000) <= event.time.seconds + 3600) {
 		document.getElementById("next-event-section").style.display = "inline";
 		document.getElementById("next-event").innerText = event.name;
 		document.getElementById("next-event-time").innerText = `${getReadableDate(event.time.toDate())} @ ${getReadableTime(event.time.toDate())}`
