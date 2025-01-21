@@ -18,66 +18,61 @@ function openTarget(href) {
 }
 
 // ===== Firebase stuff =====
+const firebaseConfig = {
+	apiKey: "AIzaSyD-6DKb5XdjbQgAPFTYNqrUUSLCVHUfIrE",
+	authDomain: "cucyberclub-webproject.firebaseapp.com",
+	projectId: "cucyberclub-webproject",
+	storageBucket: "cucyberclub-webproject.appspot.com",
+	messagingSenderId: "760426500521",
+	appId: "1:760426500521:web:99bffb9cd21009df94f4b8",
+	measurementId: "G-Y3DXQEXMYC"
+};
 var db = null;
+var allEvents = null;
+var eventsLoaded = false;
 
 // An inferno, opened to swallow you whole
 // Initialize firebase
 async function firebaseInit() {
-	const firebaseConfig = {
-		apiKey: "AIzaSyD-6DKb5XdjbQgAPFTYNqrUUSLCVHUfIrE",
-		authDomain: "cucyberclub-webproject.firebaseapp.com",
-		projectId: "cucyberclub-webproject",
-		storageBucket: "cucyberclub-webproject.appspot.com",
-		messagingSenderId: "760426500521",
-		appId: "1:760426500521:web:99bffb9cd21009df94f4b8",
-		measurementId: "G-Y3DXQEXMYC"
-	};
 	firebase.initializeApp(firebaseConfig);
 	firebase.analytics();
 
 	db = firebase.firestore();
 
-	await initSemSelector();
-	await addEvents("all");
 	await addMembers();
 }
 
-// Initialize the filter by semester selector
-async function initSemSelector() {
-	const selector = document.getElementById("event-sem-selector");
-	const querySnapshot = await db.collection("events").get();
-	querySnapshot.forEach((doc) => {
-		const option = document.createElement("option");
-		option.value = doc.id;
-		option.innerText = doc.id;
-		selector.appendChild(option);
-	});
+// Loads the events list only if the meetings section is expanded
+async function loadEvents() {
+	if (!eventsLoaded) {
+		eventsLoaded = true;
+
+		console.log("ran");
+		allEvents = await db.collection("events").get();
+
+		addEvents("all");
+		initSemSelector();
+	}
 }
 
-// This is what is first run to populate the events list.
-// It queries all events, adds them to an array, and then passes that array to renderEvents
-async function addEvents(semester) {
-	let events = [];
-	if (semester === "all") {
-		const querySnapshot = await db.collection("events").get();
-		querySnapshot.forEach((doc) => {
+// This populates the events list.
+function addEvents(semester) {
+
+	// Grab all events from allEvents matching the semester (all if "all")
+	var events = [];
+	allEvents.forEach((doc) => {
+		if (semester === "all" || doc.id === semester) {
 			events = events.concat(doc.data().details);
-		});
-	}
-	else {
-		const querySnapshot = await db.collection("events").doc(semester).get();
-		events = querySnapshot.data().details;
-	}
-	renderEvents(events);
-}
+		}
+	});
 
-// Adds events to the page
-function renderEvents(events) {
+	// Wipe currently displayed events
 	document.getElementById("events").innerHTML = ""
 
-	// Sorted events by time, with most recent first
+	// Sort events by time, with most recent first
 	events.sort((a, b) => (b.time.seconds - a.time.seconds));
 
+	// Create an HTML element for all events and add it to the #events element
 	for (let i = 0; i < events.length; i++) {
 		const event = events[i];
 
@@ -115,15 +110,24 @@ function renderEvents(events) {
 	}
 }
 
+// Initialize the filter by semester selector
+function initSemSelector() {
+	allEvents.forEach((doc) => {
+		const option = document.createElement("option");
+		option.value = doc.id;
+		option.innerText = doc.id;
+		document.getElementById("event-sem-selector").appendChild(option);
+	});
+}
+
+// Add members to the members section
 async function addMembers() {
-	let querySnapshot = await db.collection("team").doc("members").get();
+	const querySnapshot = await db.collection("team").doc("members").get();
 	const names = querySnapshot.data().names;
-	const container = document.getElementById("team-container");
 	for (let i = 0; i < names.length; i++) {
-		const name = names[i];
 		const name_card = document.createElement("div");
-		name_card.innerHTML = `${name}`;
-		container.appendChild(name_card);
+		name_card.innerHTML = `${names[i]}`;
+		document.getElementById("team-container").appendChild(name_card);
 	}
 }
 
