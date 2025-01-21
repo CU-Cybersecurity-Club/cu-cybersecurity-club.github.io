@@ -29,14 +29,16 @@
 				<span class="neofetch-item">Where</span>: ECCR 151<br>
 				<span class="neofetch-item">Discord</span>: https://discord.gg/MKVwSqFmdu<br>
 				<br>
-				<span class="neofetch-item">Next Meeting</span>: Spring 2025 Kickoff<br>
-				<span class="neofetch-item">Happening In</span>: 1 week<br>
-				<br>
+				<span id="next-event-section">
+					<span class="neofetch-item">Next Meeting</span>: <span id="next-event"></span><br>
+					<span class="neofetch-item">Happening On</span>: <span id="next-event-time"></span><br>
+					<br>
+				</span>
 				<span class="neofetch-item">About Us</span>: CU Boulder exists as one of the top research institutions in the US. Surrounding this campus is one of the largest concentrations of startups and technology companies in the nation. With a national shortfall of 1.8 million cybersecurity professionals, CU Boulder is uniquely positioned to address this gap through the Technology, Cybersecurity and Policy program.<br><br>
-				To meet this vision of delving high caliber cybersecurity professionals to our surrounding industry, we envision growing the value of our program through increased industry partnerships and research collaboration opportunities. We are currently looking to build these long term relationships through the assistance of establishing the first CU Boulder competitive cyber team and training environment.
+				To meet this vision of delivering high caliber cybersecurity professionals to our surrounding industry, we envision growing the value of our program through increased industry partnerships and research collaboration opportunities. We are currently looking to build these long term relationships through the assistance of establishing the first CU Boulder competitive cyber team and training environment.
 			</div>
 		</div>
-		<details id="meetings-section" class="section" ontoggle="loadEvents()">
+		<details id="meetings-section" class="section">
 			<summary>> Meetings</summary>
 			<div class="center-div">
 				<select id="event-sem-selector" class="form-select" aria-label="Filter by Semester" onchange="addEvents(this.value)">

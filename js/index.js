@@ -29,7 +29,6 @@ const firebaseConfig = {
 };
 var db = null;
 var allEvents = null;
-var eventsLoaded = false;
 
 // An inferno, opened to swallow you whole
 // Initialize firebase
@@ -38,19 +37,31 @@ async function firebaseInit() {
 	firebase.analytics();
 
 	db = firebase.firestore();
+	allEvents = await db.collection("events").get();
 
+	addNextEvent();
+	addEvents("all");
+	initSemSelector();
 	await addMembers();
 }
 
-// Loads the events list only if the meetings section is expanded
-async function loadEvents() {
-	if (!eventsLoaded) {
-		eventsLoaded = true;
+// Updates the "Next Meeting" text
+function addNextEvent() {
 
-		allEvents = await db.collection("events").get();
+	// Grab all events from allEvents
+	var events = [];
+	allEvents.forEach((doc) => {
+		events = events.concat(doc.data().details);
+	});
 
-		addEvents("all");
-		initSemSelector();
+	// Get most recent event
+	var event = events.sort((a, b) => (b.time.seconds - a.time.seconds))[0];
+
+	// Display only if event time has not already passed
+	if (Math.round(Date.now() / 1000) <= event.time.seconds) {
+		document.getElementById("next-event-section").style.display = "inline";
+		document.getElementById("next-event").innerText = event.name;
+		document.getElementById("next-event-time").innerText = `${getReadableDate(event.time.toDate())} @ ${getReadableTime(event.time.toDate())}`
 	}
 }
 

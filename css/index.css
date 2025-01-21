@@ -296,3 +296,7 @@ summary:hover {
 #contacts a:hover {
 	color: white;
 }
+
+#next-event-section {
+	display: none;
+}
