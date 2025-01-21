@@ -47,7 +47,6 @@ async function loadEvents() {
 	if (!eventsLoaded) {
 		eventsLoaded = true;
 
-		console.log("ran");
 		allEvents = await db.collection("events").get();
 
 		addEvents("all");
