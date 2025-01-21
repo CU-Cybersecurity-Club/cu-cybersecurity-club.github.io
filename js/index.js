@@ -37,7 +37,7 @@ async function firebaseInit() {
 	firebase.analytics();
 
 	db = firebase.firestore();
-	allEvents = await db.collection("events").get();
+	allEvents = await db.collection("events").orderBy("start", "desc").get();
 
 	addNextEvent();
 	addEvents("all");
