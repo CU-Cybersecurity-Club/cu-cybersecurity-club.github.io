@@ -2,11 +2,11 @@
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
 	if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-		document.getElementById("topnav").style.fontSize = "max(0.8rem, 1.5vmin)";
-		document.getElementById("topnav").style.lineHeight = "max(2.4rem, 4.5vmin)";
+		document.querySelector(":root").style.setProperty("--topnav-font", "max(0.8rem, 1.5vmin)");
+		document.querySelector(":root").style.setProperty("--topnav-lineheight", "max(2.4rem, 4.5vmin)");
 	} else {
-		document.getElementById("topnav").style.fontSize = "max(0.8rem, 2.2vmin)";
-		document.getElementById("topnav").style.lineHeight = "max(2.4rem, 6.6vmin)";
+		document.querySelector(":root").style.setProperty("--topnav-font", "max(0.8rem, 2.2vmin)");
+		document.querySelector(":root").style.setProperty("--topnav-lineheight", "max(2.4rem, 6.6vmin)");
 	}
 }
 
@@ -14,7 +14,7 @@ function scrollFunction() {
 function openTarget(href) {
 	var hash = href.substring(1);
 	if(hash) var details = document.getElementById(hash);
-	if(details && details.tagName.toLowerCase() === 'details') details.open = true;
+	if(details && details.tagName.toLowerCase() === "details") details.open = true;
 }
 
 // ===== Firebase stuff =====
@@ -152,10 +152,10 @@ function getReadableDate(date) {
 function getReadableTime(date) {
 	var hours = date.getHours();
 	var minutes = date.getMinutes();
-	var ampm = hours >= 12 ? 'PM' : 'AM';
+	var ampm = hours >= 12 ? "PM" : "AM";
 	hours = hours % 12;
 	hours = hours ? hours : 12;
-	minutes = minutes < 10 ? '0'+minutes : minutes;
-	var strTime = hours + ':' + minutes + ' ' + ampm;
+	minutes = minutes < 10 ? "0"+minutes : minutes;
+	var strTime = hours + ":" + minutes + " " + ampm;
 	return strTime;
 }

@@ -10,68 +10,50 @@
 	font-weight: 700;
 	src: url(./fonts/UbuntuMono-B.woff2) format('woff2');
 }
-
+:root {
+	/*colors*/
+	--primary: #cfb87c;
+	--secondary: #c93e3e;
+	--tertiary: #7a92d1;
+	--tertiary-light: #c4cde4;
+	--light: beige;
+	--dark: rgb(25, 25, 25);
+	--black: #272225;
+	--white: white;
+	/*font sizes*/
+	--topnav-font: max(0.8rem, 2.2vmin);
+	--topnav-lineheight: max(2.4rem, 6.6vmin);
+	--small-font: max(0.7rem, 2.8vmin);
+	--section-font: max(1.2rem, 4vmin);
+	--event-title-font: max(0.8rem, 2.8vmin);
+	--event-details-font: max(0.7rem, 2vmin);
+	/*margins and padding*/
+	--horizontal-padding: 5vw;
+	--vertical-padding: 5vh;
+}
 
 body {
 	font-family: Ubuntu;
-	color: rgb(215, 215, 215);
+	color: var(--light);
 
 	padding: 0px;
 	margin: 0px;
 }
 
-#neofetch {
-	background-color: rgb(10, 10, 10);
-
-	font-size: max(0.7rem, 2.8vmin);
-	line-height: max(0.7rem, 2.8vmin);
-
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-
-	padding-top: calc(5vh + max(2.4rem, 6.6vmin));
-	padding-right: 10vw;
-	padding-left: 10vw;
-	padding-bottom: 5vh;
-	min-height: calc(90vh - max(2.4rem, 6.6vmin));
-}
-
-@media screen and (max-width: 60rem) {
-	#neofetch {
-		flex-direction: column;
-		gap: 6vh;
-	}
-}
-
-#neofetch-half-1 {
-	font-weight: bold;
-	flex-grow: 0;
-}
-
-#neofetch-half-2 {
-	flex-grow: 1;
-}
-
-.neofetch-item {
-	font-weight: bold;
-	color: #ceb87c;
-}
-
 #topnav {
-	background-color: #ceb87c;
+	background-color: var(--primary);
 
-	font-size: max(0.8rem, 2.2vmin);
-	line-height: max(2.4rem, 6.6vmin);
+	font-size: var(--topnav-font);
+	line-height: var(--topnav-lineheight);
 
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: left;
 	align-items: center;
+
+	padding-left: var(--horizontal-padding);
+	padding-right: var(--horizontal-padding);
 
 	position: fixed;
 	top: 0;
@@ -83,39 +65,75 @@ body {
 
 	transition: 10ms;
 }
-
 #topnav a {
-	color: black;
+	color: var(--black);
 
 	text-align: center;
 	text-decoration: none;
 
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: max(1vw, 8px);
+	padding-right: max(1vw, 8px);
 
 	transition: 0.3s;
 }
-
 #topnav a:hover {
-	background-color: white;
+	background-color: var(--light);
 }
-
 #logo {
 	font-weight: bold;
 }
 
-#totop {
-	position: absolute;
-	top: 0;
-	right: 0;
+.section {
+	background-color: var(--black);
+
+	padding-top: var(--vertical-padding);
+	padding-bottom: var(--vertical-padding);
+	padding-left: var(--horizontal-padding);
+	padding-right: var(--horizontal-padding);
+}
+
+#neofetch-section {
+	background-color: var(--black);
+
+	display: flex;
+	align-items: center;
+
+	padding-top: calc(var(--vertical-padding) + var(--topnav-lineheight));
+	padding-bottom: var(--vertical-padding);
+	min-height: calc(100vh - 2*var(--vertical-padding) - var(--topnav-lineheight));
+}
+#neofetch {
+	font-size: var(--small-font);
+	line-height: var(--small-font);
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+@media screen and (max-width: 60rem) {
+	#neofetch {
+		flex-direction: column;
+		gap: 6vh;
+	}
+}
+#neofetch-half-1 {
+	font-weight: bold;
+	flex-grow: 0;
+}
+#neofetch-half-2 {
+	flex-grow: 1;
+	margin-bottom: auto;
+}
+.neofetch-item {
+	font-weight: bold;
+	color: var(--primary);
 }
 
 summary {
-	font-size: max(1.2rem, 4vmin);
-
-	padding: 0px;
-	margin: 0px;
-
+	font-size: var(--section-font);
 	list-style: none;
 }
 summary::-webkit-details-marker {
@@ -123,20 +141,11 @@ summary::-webkit-details-marker {
 }
 summary:hover {
 	cursor: pointer;
-	color: white;
-}
-
-.section {
-	background-color: black;
-
-	padding-top: 5vh;
-	padding-bottom: 5vh;
-	padding-left: 5vw;
-	padding-right: 5vw;
+	color: var(--white);
 }
 
 #meetings-section {
-	background-color: rgb(25, 25, 25);
+	background-color: var(--dark);
 }
 
 #events {
@@ -144,14 +153,14 @@ summary:hover {
 	flex-direction: column;
 	gap: 2vh;
 
-	padding-left: 5vw;
-	padding-right: 5vw;
+	padding-left: var(--horizontal-padding);
+	padding-right: var(--horizontal-padding);
 }
 
 .event {
-	background-color: beige;
+	background-color: var(--light);
 
-	color: black;
+	color: var(--black);
 
 	display: flex;
 	flex-direction: column;
@@ -166,24 +175,25 @@ summary:hover {
 	transition: 200ms;
 	border-radius: 10px;
 }
-
 .event:hover {
-	background-color: white;
+	background-color: var(--white);
 }
 
-.event a {
-	color: #be6723;
+a {
+	color: var(--tertiary);
 	text-decoration: none;
+}
+a:hover {
+	color: var(--tertiary-light);
 }
 
 .event-title{
-	font-size: max(0.8rem, 2.8vmin);
-
+	font-size: var(--event-title-font);
 	padding-bottom: 2vh;
 }
 
 .event-details {
-	font-size: max(0.7rem, 2vmin);
+	font-size: var(--event-details-font);
 
 	display: flex;
 	flex-direction: row;
@@ -221,7 +231,7 @@ summary:hover {
 }
 
 .event-details img {
-	height: max(0.7rem, 2vmin)
+	height: var(--event-details-font);
 }
 
 .separator {
@@ -235,10 +245,10 @@ summary:hover {
 }
 
 .form-select {
-	background-color: rgb(240, 240, 240);
+	background-color: var(--light);
 
 	font-family: Ubuntu;
-	font-size: max(0.7rem, 2vmin);
+	font-size: var(--event-details-font);
 
 	padding: 3px;
 	margin: 2vh;
@@ -259,10 +269,10 @@ summary:hover {
 }
 
 #team-container div {
-	background-color: black;
+	background-color: var(--black);
 
-	font-size: max(0.7rem, 2.8vmin);
-	color: #ceb87c;
+	font-size: var(--small-font);
+	color: var(--primary);
 
 	text-align: center;
 	align-content: center;
@@ -272,11 +282,11 @@ summary:hover {
 }
 
 #contact-section {
-	background-color: rgb(25, 25, 25);
+	background-color: var(--dark);
 }
 
 #contacts {
-	font-size: max(0.7rem, 3vmin);
+	font-size: var(--small-font);
 
 	display: flex;
 	flex-direction: column;
@@ -286,15 +296,6 @@ summary:hover {
 
 	justify-content: center;
 	align-items: center;
-}
-
-#contacts a {
-	color: beige;
-	text-decoration: none;
-}
-
-#contacts a:hover {
-	color: white;
 }
 
 #next-event-section {
