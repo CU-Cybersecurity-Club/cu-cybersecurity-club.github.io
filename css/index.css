@@ -10,294 +10,66 @@
 	font-weight: 700;
 	src: url(./fonts/UbuntuMono-B.woff2) format('woff2');
 }
-:root {
-	/*colors*/
-	--primary: #cfb87c;
-	--secondary: #c93e3e;
-	--tertiary: #7a92d1;
-	--tertiary-light: #c4cde4;
-	--light: beige;
-	--dark: rgb(25, 25, 25);
-	--black: #272225;
-	--white: white;
-	/*font sizes*/
-	--topnav-font: max(0.8rem, 2.2vmin);
-	--topnav-lineheight: max(2.4rem, 6.6vmin);
-	--small-font: max(0.7rem, 2.8vmin);
-	--section-font: max(1.2rem, 4vmin);
-	--event-title-font: max(0.8rem, 2.8vmin);
-	--event-details-font: max(0.7rem, 2vmin);
-	/*margins and padding*/
-	--horizontal-padding: 5vw;
-	--vertical-padding: 5vh;
-}
 
 body {
 	font-family: Ubuntu;
-	color: var(--light);
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+	color: #EEEEEC;
 
-	padding: 0px;
-	margin: 0px;
-}
+	width: 100vw;
+	min-height: 100vh;
 
-#topnav {
-	background-color: var(--primary);
+	background-image: url(../images/background.jpg);
+	background-size: cover;
 
-	font-size: var(--topnav-font);
-	line-height: var(--topnav-lineheight);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3vmin;
 
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: left;
-	align-items: center;
-
-	padding-left: var(--horizontal-padding);
-	padding-right: var(--horizontal-padding);
-
-	position: fixed;
-	top: 0;
-	left: 0;
-
-	width: 100%;
-
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-
-	transition: 10ms;
-}
-#topnav a {
-	color: var(--black);
-
-	text-align: center;
-	text-decoration: none;
-
-	padding-left: max(1vw, 8px);
-	padding-right: max(1vw, 8px);
-
-	transition: 0.3s;
-}
-#topnav a:hover {
-	background-color: var(--light);
-}
-#logo {
-	font-weight: bold;
-}
-
-.section {
-	background-color: var(--black);
-
-	padding-top: var(--vertical-padding);
-	padding-bottom: var(--vertical-padding);
-	padding-left: var(--horizontal-padding);
-	padding-right: var(--horizontal-padding);
-}
-
-#neofetch-section {
-	background-color: var(--black);
-
-	display: flex;
-	align-items: center;
-
-	padding-top: calc(var(--vertical-padding) + var(--topnav-lineheight));
-	padding-bottom: var(--vertical-padding);
-	min-height: calc(100vh - 2*var(--vertical-padding) - var(--topnav-lineheight));
-}
-#neofetch {
-	font-size: var(--small-font);
-	line-height: var(--small-font);
-
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-}
-@media screen and (max-width: 60rem) {
-	#neofetch {
-		flex-direction: column;
-		gap: 6vh;
-	}
-}
-#neofetch-half-1 {
-	font-weight: bold;
-	flex-grow: 0;
-}
-#neofetch-half-2 {
-	flex-grow: 1;
-	margin-bottom: auto;
-}
-.neofetch-item {
-	font-weight: bold;
-	color: var(--primary);
-}
-
-summary {
-	font-size: var(--section-font);
-	list-style: none;
-}
-summary::-webkit-details-marker {
-	display: none;
-}
-summary:hover {
-	cursor: pointer;
-	color: var(--white);
-}
-
-#meetings-section {
-	background-color: var(--dark);
-}
-
-#events {
-	display: flex;
-	flex-direction: column;
-	gap: 2vh;
-
-	padding-left: var(--horizontal-padding);
-	padding-right: var(--horizontal-padding);
-}
-
-.event {
-	background-color: var(--light);
-
-	color: var(--black);
-
-	display: flex;
-	flex-direction: column;
-
-	padding-top: 3vh;
-	padding-bottom: 3vh;
-	padding-left: 3vh;
-	padding-right: 3vh;
-
-	max-width: 100%;
-
-	transition: 200ms;
-	border-radius: 10px;
-}
-.event:hover {
-	background-color: var(--white);
-}
-
-a {
-	color: var(--tertiary);
-	text-decoration: none;
-}
-a:hover {
-	color: var(--tertiary-light);
-}
-
-.event-title{
-	font-size: var(--event-title-font);
-	padding-bottom: 2vh;
-}
-
-.event-details {
-	font-size: var(--event-details-font);
-
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: left;
-	align-items: start;
-	gap: 10px;
-}
-
-.event-details div {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: left;
-	align-items: start;
-	gap: 5px;
-}
-
-@media screen and (max-width: 32rem) {
-	.event {
-		justify-content: center;
-		align-items: center;
-	}
-	.event-title {
-		text-align: center;
-	}
-	.event-details {
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	.separator {
-		display: none;
-	}
-}
-
-.event-details img {
-	height: var(--event-details-font);
-}
-
-.separator {
-	text-align: center;
-	color: grey;
-}
-
-.center-div {
-	width: 100%;
-	text-align: center;
-}
-
-.form-select {
-	background-color: var(--light);
-
-	font-family: Ubuntu;
-	font-size: var(--event-details-font);
-
-	padding: 3px;
-	margin: 2vh;
-
-	max-width: min-content;
-	align-self: center;
-}
-
-#team-container {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-
-	padding-top: 2vh;
-	padding-left: 3vw;
-	padding-right: 3vw;
-	padding-bottom: 4.5vh;
-}
-
-#team-container div {
-	background-color: var(--black);
-
-	font-size: var(--small-font);
-	color: var(--primary);
-
-	text-align: center;
-	align-content: center;
-
-	width: 25%;
-	height: max(2rem, 10vmin);
-}
-
-#contact-section {
-	background-color: var(--dark);
-}
-
-#contacts {
-	font-size: var(--small-font);
-
-	display: flex;
-	flex-direction: column;
-	gap: 3vh;
-
+	margin: 0;
 	padding: 3vmin;
-
-	justify-content: center;
-	align-items: center;
+	box-sizing: border-box;
 }
 
-#next-event-section {
-	display: none;
+.window {
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	padding: 4vmin;
+}
+
+#primary {
+	grid-row: span 2;
+
+	display: grid;
+	grid-template-columns: min-content auto;
+	grid-template-rows: min-content min-content min-content max-content;
+	gap: 4vmin;
+}
+
+pre {
+	margin: 0;
+}
+
+.terminal-line {
+	grid-column: span 2;
+}
+
+.gradient {
+	background-image: linear-gradient(to bottom right, rgba(128, 255, 0, 1) 0%, rgba(255, 255, 0, 1) 25%, rgba(255, 128, 0, 1) 50%, rgba(255, 0, 255, 1) 75%, rgba(0, 0, 255, 1) 100%);
+	background-clip: text;
+	color: transparent;
+}
+.terminal-red {
+	font-weight: bold;
+	color: #EF2929;
+}
+.terminal-green {
+	color: #8AE234;
+}
+.terminal-blue {
+	color: #729FCF;
 }
