@@ -58,10 +58,8 @@ pre {
 	grid-column: span 2;
 }
 
-.gradient {
-	background-image: linear-gradient(to bottom right, rgba(128, 255, 0, 1) 0%, rgba(255, 255, 0, 1) 25%, rgba(255, 128, 0, 1) 50%, rgba(255, 0, 255, 1) 75%, rgba(0, 0, 255, 1) 100%);
-	background-clip: text;
-	color: transparent;
+.gold {
+	color: #CFB87C;
 }
 .terminal-red {
 	font-weight: bold;
