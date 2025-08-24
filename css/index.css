@@ -11,24 +11,48 @@
 	src: url(./fonts/UbuntuMono-B.woff2) format('woff2');
 }
 
+* {
+	margin: 0;
+}
+
 body {
+	background-image: url(../images/background.jpg);
+	background-size: cover;
+
 	font-family: Ubuntu;
 	font-size: 1.2rem;
 	line-height: 1.2rem;
 	color: #EEEEEC;
+}
 
-	width: 100vw;
-	min-height: 100vh;
+#navbar {
+	height: 40px;
 
-	background-image: url(../images/background.jpg);
-	background-size: cover;
+	background: rgba(0, 0, 0, 0.8);
+
+	font-size: 1rem;
+	line-height: 1rem;
+
+	padding: 0px 60px;
+
+	display: flex;
+	gap: 40px;
+}
+#navbar > a {
+	color: inherit;
+	display: block;
+	align-content: center;
+}
+
+#content {
+	max-height: calc(100vh - 40px);
 
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 3vmin;
+	grid-template-columns: 2fr 1fr 1fr;
+	grid-template-rows: 1fr 0fr;
+	gap: 20px;
 
-	margin: 0;
-	padding: 3vmin;
+	padding: 20px 40px;
 	box-sizing: border-box;
 }
 
@@ -38,36 +62,81 @@ body {
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(5px);
 	border: 1px solid rgba(255, 255, 255, 0.3);
-	padding: 4vmin;
+	padding: 40px;
 }
 
 #primary {
 	grid-row: span 2;
 
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+#neofetch {
+	background-image: linear-gradient(135deg,rgba(255, 255, 0, 1) 0%, rgba(255, 128, 0, 1) 20%, rgba(255, 0, 255, 1) 40%, rgba(0, 255, 255, 1) 70%);
+	background-clip: text;
+
+	display: flex;
+	gap: 20px;
+
+	align-items: center;
+	justify-content: center;
+}
+#neofetch-half-2 {
+	max-width: 40ch;
+}
+
+#next-event-container {
+	display: none;
+}
+
+#events {
+	grid-column: span 2;
+	overflow-y: scroll;
+	scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+#events-sem-selector {
+	font: inherit;
+	color: inherit;
+	font-size: 1rem;
+	height: 1.5rem;
+	background-color: transparent;
+	border-radius: 4px;
+}
+#events-sem-selector > option {
+	background-color: white;
+	color: black;
+}
+#events-container {
 	display: grid;
-	grid-template-columns: min-content auto;
-	grid-template-rows: min-content min-content min-content max-content;
-	gap: 4vmin;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.2rem;
 }
 
-pre {
-	margin: 0;
+#contact {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	text-align: center;
 }
 
-.terminal-line {
+#team {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	text-align: center;
+}
+#team-title {
 	grid-column: span 2;
 }
 
-.gold {
-	color: #CFB87C;
-}
-.terminal-red {
-	font-weight: bold;
+.red {
 	color: #EF2929;
 }
-.terminal-green {
-	color: #8AE234;
+.gradient {
+	color: transparent;
 }
-.terminal-blue {
+.blue, a {
 	color: #729FCF;
 }

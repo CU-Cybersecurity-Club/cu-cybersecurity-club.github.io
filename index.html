@@ -14,10 +14,18 @@
 		<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
 	</head>
-	<body>
-		<div class="window" id="primary">
-			<div class="terminal-line"><span class="terminal-green">Cyber@CU-Boulder</span>:<span class="terminal-blue">~</span>$ neofetch</div>
-			<div class="gold" aria-hidden="true">
+	<body onload="init()">
+		<div id="navbar">
+			<a>CU Cyber Club</a>
+			<a>Home</a>
+			<a>Achievements</a>
+			<a>Challenges</a>
+		</div>
+		<div id="content">
+			<div class="window" id="primary">
+				<div>Cyber@CU-Boulder:~$ <span class="red">neofetch</span></div>
+				<div id="neofetch">
+					<div class="gradient" aria-hidden="true">
 <pre>
    11111111111111111
  101111111111111111101
@@ -35,38 +43,57 @@
            1011111111111111111
              111111111111111
 </pre>
+					</div>
+					<div id="neofetch-half-2">
+						<span class="gradient">Cyber@CU-Boulder</span><br>
+						<span aria-hidden="true">----------------</span><br>
+						<span class="gradient">When</span>: Thursdays 6:30 - 7:30 PM<br>
+						<span class="gradient">Where</span>: KOBL 341<br>
+						<span class="gradient">Discord</span>: <a href="https://discord.gg/eaVneRDJBX">discord.gg/eaVneRDJBX</a>
+						<span id="next-event-container">
+							<br>
+							<br>
+							<span class="gradient">Next Meeting</span>: <span id="next-event"></span><br>
+							<span class="gradient">Happening</span>: <span id="next-event-time"></span>
+						</span>
+					</div>
+				</div>
+				<div>Cyber@CU-Boulder:~$ <span class="red">about</span></div>
+				<div>
+					Welcome to CU Boulder's cyber club! Whether you're new to cybersecurity or looking to sharpen your skills, you've found the right place. Join us for:
+					<br><br>
+					<ul>
+						<li>Hands-on workshops covering information/physical security</li>
+						<li>Experience with offensive/defensive skills, tools, and techniques</li>
+						<li>Industry networking</li>
+						<li>Opportunities to participate in competitions</li>
+					</ul>
+					<br>
+					Anyone of any skill level, major, or background is welcome! Join our Discord community for the latest updates and events.
+				</div>
 			</div>
-			<div id="neofetch-half-2">
-				<span class="terminal-red">Cyber</span>@<span class="terminal-red">CU-Boulder</span><br>
-				<span aria-hidden="true">----------------</span><br>
-				<span class="terminal-red">When</span>: Thursdays 6:30 - 7:30 PM<br>
-				<span class="terminal-red">Where</span>: KOBL 341<br>
-				<span class="terminal-red">Discord</span>: <a href="https://discord.gg/eaVneRDJBX">https://discord.gg/eaVneRDJBX</a><br>
+			<div class="window" id="events">
+				<div>
+					Cyber@CU-Boulder:~$ <span class="red">events</span> --semester=
+					<select id="events-sem-selector" onchange="addEvents(this.value)">
+						<option value="all" selected="">Filter by Semester</option>
+					</select>
+				</div>
 				<br>
-				<span id="next-event-section">
-					<span class="terminal-red">Next Meeting</span>: <span id="next-event">Introduction to binary reverse engineering with Ghidra</span><br>
-					<span class="terminal-red">Happening On</span>: <span id="next-event-time">28 August 2025 @ 6:30 PM</span><br>
-				</span>
-				<br>
-				<span class="terminal-red">Navigation</span><br>
-				<span aria-hidden="true">----------</span><br>
-				<span>Competitions</span><br>
-				<span>Meet the Team</span><br>
-				<span>Challenges</span><br>
+				<div id="events-container"></div>
 			</div>
-			<div class="terminal-line"><span class="terminal-green">Cyber@CU-Boulder</span>:<span class="terminal-blue">~</span>$ about</div>
-			<div class="terminal-line">
-				Welcome to CU Boulder's cyber club! Whether you're new to cybersecurity or looking to sharpen your skills, you've found the right place. Join us for:
-				<ul>
-					<li>Hands-on workshops covering information/physical security</li>
-					<li>Experience with offensive/defensive skills, tools, and techniques</li>
-					<li>Industry networking</li>
-					<li>Opportunities to participate in competitions</li>
-				</ul>
-				Anyone of any skill level, major, or background is welcome! Join our Discord community for the latest updates and events.
+			<div class="window" id="contact">
+				<span class="red">Connect</span>
+				<a href="mailto:cucyberclub@colorado.edu">cucyberclub@colorado.edu</a>
+				<a href="https://discord.gg/eaVneRDJBX">Discord</a>
+				<a href="https://github.com/CU-Cybersecurity-Club">GitHub</a>
+				<a href="https://x.com/cyber_colorado">Twitter/X</a>
+				<a href="https://campusgroups.colorado.edu/feeds?type=club&type_id=35615&tab=home">Campus Groups (RSO)</a>
+			</div>
+			<div class="window" id="team">
+				<span class="red" id="team-title">Team</span>
 			</div>
 		</div>
-		<div class="window" id="events">Events</div>
-		<div class="window" id="contact">Contact Us</div>
+		<script src="./js/index.js"></script>
 	</body>
 </html>
