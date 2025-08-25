@@ -143,9 +143,11 @@ body {
 }
 
 .red {
+	font-weight: bold;
 	color: #EF2929;
 }
 .gradient {
+	font-weight: bold;
 	color: transparent;
 }
 .blue, a {
