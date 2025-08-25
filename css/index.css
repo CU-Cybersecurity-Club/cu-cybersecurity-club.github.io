@@ -23,6 +23,8 @@ body {
 	font-size: 1.2rem;
 	line-height: 1.2rem;
 	color: #EEEEEC;
+
+	scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 
 #navbar {
@@ -33,10 +35,10 @@ body {
 	font-size: 1rem;
 	line-height: 1rem;
 
-	padding: 0px 60px;
+	padding: 0px 4vw;
 
 	display: flex;
-	gap: 40px;
+	gap: 3vw;
 }
 #navbar > a {
 	color: inherit;
@@ -50,9 +52,9 @@ body {
 	display: grid;
 	grid-template-columns: 2fr 1fr 1fr;
 	grid-template-rows: 1fr 0fr;
-	gap: 20px;
+	gap: 2vh 1vw;
 
-	padding: 20px 40px;
+	padding: 2vh 1vw;
 	box-sizing: border-box;
 }
 
@@ -62,7 +64,7 @@ body {
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(5px);
 	border: 1px solid rgba(255, 255, 255, 0.3);
-	padding: 40px;
+	padding: 4vh 2vw;
 }
 
 #primary {
@@ -70,14 +72,16 @@ body {
 
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
+	gap: 2vh;
+
+	overflow: auto;
 }
 #neofetch {
 	background-image: linear-gradient(135deg,rgba(255, 255, 0, 1) 0%, rgba(255, 128, 0, 1) 20%, rgba(255, 0, 255, 1) 40%, rgba(0, 255, 255, 1) 70%);
 	background-clip: text;
 
 	display: flex;
-	gap: 20px;
+	gap: 2ch;
 
 	align-items: center;
 	justify-content: center;
@@ -92,7 +96,6 @@ body {
 #events {
 	grid-column: span 2;
 	overflow-y: scroll;
-	scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 #events hr {
 	border: none;
@@ -125,14 +128,14 @@ body {
 #contact {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 2vh;
 	text-align: center;
 }
 
 #team {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 20px;
+	gap: 2vh;
 	text-align: center;
 }
 #team-title {
@@ -147,4 +150,27 @@ body {
 }
 .blue, a {
 	color: #729FCF;
+}
+
+@media screen and (max-width: 90rem) {
+	#content {
+		max-height: max-content;
+		display: flex;
+		flex-direction: column;
+	}
+	#events-container {
+		max-height: 50vh;
+	}
+}
+
+@media screen and (max-width: 40rem) {
+	#neofetch {
+		flex-direction: column;
+	}
+	#neofetch-half-2 {
+		text-align: center;
+	}
+	.hide {
+		display: none;
+	}
 }
