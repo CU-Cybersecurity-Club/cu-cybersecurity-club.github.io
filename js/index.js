@@ -84,13 +84,12 @@ function addEvents(semester) {
 			event_details.innerHTML += " / ";
 			event_details.innerHTML += `<a href="${event.recording}">Recording</a>`;
 		}
-		if("survey" in event) {
-			event_details.innerHTML += " / ";
-			event_details.innerHTML += `<a href="${event.survey}">Survey</a>`;
-		}
+
+		const divider = document.createElement("hr");
 
 		eventsContainer.appendChild(event_title);
 		eventsContainer.appendChild(event_details);
+		eventsContainer.appendChild(divider);
 	}
 }
 
