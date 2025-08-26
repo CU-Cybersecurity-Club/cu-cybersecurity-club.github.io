@@ -78,7 +78,7 @@ const catsec = [
     "Here's a joke:",
     "There are 10 types of people that understand binary. Those that do, and those that don't.",
     "<br>",
-    "Meet us every Thursday at 6:30pm @ KOBL 330.",
+    "Meet us every Thursday at 6:30pm @ KOBL 317.",
     "<br>"
 ];
 
