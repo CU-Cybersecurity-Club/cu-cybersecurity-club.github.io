@@ -49,7 +49,6 @@ body {
 	gap: 2vh 1vw;
 	padding: 2vh 1vw;
 	box-sizing: border-box;
-	animation: fadeIn 0.5s ease-in forwards;
 }
 
 .window {
@@ -130,18 +129,6 @@ body {
 }
 #team-title {
 	grid-column: span 2;
-}
-
-@keyframes fadeIn {
-	0% {
-		opacity: 0;
-	}
-	50% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
 }
 
 .red {
