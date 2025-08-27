@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap");
 
 html {
     font-family: "JetBrains Mono", serif;
@@ -10,7 +10,6 @@ body {
     padding: 15px 20px;
     min-height: 99%;
     width: 100%;
-    min-width: 550px;
     color: #53ccaa;
     background: #0d0d0d;
     overflow-x: hidden;
@@ -27,11 +26,13 @@ body {
     align-items: center;
     margin: 8px 0;
     text-shadow: 0 0 2px #53ccaa;
+    flex-wrap: nowrap;
 }
 
 .prompt {
     color: #53ccaa;
     margin-right: 8px;
+    flex-shrink: 0;
 }
 
 .input {
@@ -39,10 +40,10 @@ body {
     border: none;
     color: #53ccaa;
     text-shadow: 0 0 2px #53ccaa;
-
     outline: none;
     flex-grow: 1;
-    width: calc(100% - 200px);
+    min-width: 0;
+    width: 100%;
     font-family: "JetBrains Mono", serif;
     font-size: 1em;
 }
@@ -53,11 +54,13 @@ body {
     white-space: pre-wrap;
     line-height: 1.3em;
     text-shadow: 0 0 2px #ed9cbc;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .error {
-    color: #F6B340;
-    text-shadow: 0 0 2px #F6B340;
+    color: #f6b340;
+    text-shadow: 0 0 2px #f6b340;
 }
 
 .command {
@@ -66,11 +69,58 @@ body {
 }
 
 a {
-    color: #9C8394;
+    color: #9c8394;
     text-decoration: none;
+    word-wrap: break-word;
 }
 
 a:hover {
     background: #53ccaa;
     color: #0d0d0d;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    #terminal {
+        padding: 15px;
+        min-height: calc(100vh - 60px);
+    }
+
+    .input {
+        min-height: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 8px 12px;
+        font-size: 0.85em;
+    }
+
+    #terminal {
+        padding: 10px;
+        min-height: calc(100vh - 50px);
+    }
+
+    .prompt {
+        margin-right: 4px;
+        font-size: 0.85em;
+    }
+
+    .input-line {
+        margin: 6px 0;
+    }
+
+    .input {
+        font-size: 0.9em;
+    }
+
+    .output-line {
+        margin: 3px 0;
+        line-height: 1.2em;
+    }
 }
