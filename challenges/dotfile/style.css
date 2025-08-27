@@ -38,7 +38,7 @@ body {
     color: #53ccaa;
     margin-right: 8px;
     flex-shrink: 0;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .input {
@@ -51,7 +51,7 @@ body {
     min-width: 0;
     width: 100%;
     font-family: "JetBrains Mono", serif;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .output-line {
@@ -88,7 +88,7 @@ a:hover {
 @media (max-width: 768px) {
     body {
         padding: 10px 15px;
-        font-size: 0.9em;
+        font-size: 18px;
     }
 
     #terminal {
@@ -104,7 +104,7 @@ a:hover {
 @media (max-width: 480px) {
     body {
         padding: 8px 12px;
-        font-size: 16px;
+        font-size: 18px;
     }
 
     #terminal {

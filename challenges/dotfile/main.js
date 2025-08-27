@@ -12,7 +12,7 @@ function createInputLine() {
 
     const prompt = document.createElement('span');
     prompt.className = 'prompt';
-    prompt.textContent = 'guest@cucyberclub:~$';
+    prompt.textContent = 'guest@cucyber:~$';
 
     const input = document.createElement('input');
     input.type = 'text';
