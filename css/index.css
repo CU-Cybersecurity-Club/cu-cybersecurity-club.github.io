@@ -15,19 +15,11 @@
 	margin: 0px;
 }
 
-body:before {
-	background-image: url(../images/background.jpg);
-	background-size: cover;
-
-	content: "";
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-}
-
 body {
 	min-height: 100vh;
+	background-image: url(../images/background.jpg);
+	background-size: cover;
+	background-attachment: fixed;
 	font-family: Ubuntu;
 	font-size: 1.2rem;
 	line-height: 1.2rem;
