@@ -33,6 +33,7 @@ body {
     color: #53ccaa;
     margin-right: 8px;
     flex-shrink: 0;
+    font-size: 16px;
 }
 
 .input {
@@ -45,7 +46,7 @@ body {
     min-width: 0;
     width: 100%;
     font-family: "JetBrains Mono", serif;
-    font-size: 1em;
+    font-size: 16px;
 }
 
 .output-line {
@@ -98,7 +99,7 @@ a:hover {
 @media (max-width: 480px) {
     body {
         padding: 8px 12px;
-        font-size: 0.85em;
+        font-size: 16px;
     }
 
     #terminal {
@@ -106,18 +107,18 @@ a:hover {
         min-height: calc(100vh - 50px);
     }
 
-    .prompt {
+    /*.prompt {
         margin-right: 4px;
         font-size: 0.85em;
-    }
+    }*/
 
     .input-line {
         margin: 6px 0;
     }
 
-    .input {
+    /*.input {
         font-size: 0.9em;
-    }
+    }*/
 
     .output-line {
         margin: 3px 0;
