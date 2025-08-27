@@ -19,6 +19,7 @@ body {
 	min-height: 100vh;
 	background-image: url(../images/background.jpg);
 	background-size: cover;
+	background-attachment: fixed;
 	font-family: Ubuntu;
 	font-size: 1.2rem;
 	line-height: 1.2rem;
@@ -32,7 +33,6 @@ body {
 	font-size: 1rem;
 	line-height: 1rem;
 	display: flex;
-	gap: 3vw;
 	padding: 0px 3vw;
 }
 #navbar > a {
@@ -41,7 +41,7 @@ body {
 	text-decoration: none;
 	display: block;
 	align-content: center;
-	padding: 10px;
+	padding: 10px 20px;
 	transition: 0.2s;
 }
 #navbar > a:hover {
@@ -163,6 +163,9 @@ body {
 }
 
 @media screen and (max-width: 40rem) {
+	#primary {
+		gap: 4vh;
+	}
 	#neofetch {
 		flex-direction: column;
 	}
