@@ -12,35 +12,28 @@
 }
 
 * {
-	margin: 0;
+	margin: 0px;
 }
 
 body {
 	min-height: 100vh;
-
 	background-image: url(../images/background.jpg);
 	background-size: cover;
-
 	font-family: Ubuntu;
 	font-size: 1.2rem;
 	line-height: 1.2rem;
 	color: #EEEEEC;
-
 	scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 
 #navbar {
 	height: 40px;
-
 	background: rgba(0, 0, 0, 0.9);
-
 	font-size: 1rem;
 	line-height: 1rem;
-
-	padding: 0px 4vw;
-
 	display: flex;
 	gap: 3vw;
+	padding: 0px 4vw;
 }
 #navbar > a {
 	color: inherit;
@@ -50,43 +43,36 @@ body {
 
 #content {
 	max-height: calc(100vh - 40px);
-
 	display: grid;
 	grid-template-columns: 2fr 1fr 1fr;
 	grid-template-rows: 1fr 0fr;
 	gap: 2vh 1vw;
-
 	padding: 2vh 1vw;
 	box-sizing: border-box;
-
 	animation: fadeIn 0.5s ease-in forwards;
 }
 
 .window {
 	background: rgba(0, 0, 0, 0.9);
-	border-radius: 16px;
-	box-shadow: 0px 4px 10px black;
 	backdrop-filter: blur(10px);
 	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 16px;
+	box-shadow: 0px 4px 10px black;
 	padding: 4vh 2vw;
 }
 
 #primary {
 	grid-row: span 2;
-
 	display: flex;
 	flex-direction: column;
 	gap: 2vh;
-
 	overflow: auto;
 }
 #neofetch {
 	background-image: linear-gradient(135deg,rgba(255, 255, 0, 1) 0%, rgba(255, 128, 0, 1) 20%, rgba(255, 0, 255, 1) 40%, rgba(0, 255, 255, 1) 70%);
 	background-clip: text;
-
 	display: flex;
 	gap: 2ch;
-
 	align-items: center;
 	justify-content: center;
 }
@@ -107,13 +93,13 @@ body {
 	grid-column: span 2;
 }
 #events-sem-selector {
+	height: 1.5rem;
 	font: inherit;
 	color: inherit;
 	font-size: 1rem;
-	height: 1.5rem;
 	background-color: transparent;
-	border-radius: 4px;
 	border: 1px solid rgba(255, 255, 255, 0.3);;
+	border-radius: 4px;
 }
 #events-sem-selector > option {
 	background-color: white;
