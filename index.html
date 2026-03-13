@@ -16,10 +16,36 @@
     </head>
 
     <body>
+        <!-- Nav :3 -->
         <div id="navbar">
-            <div class="navbar-left"></div>
-            <div class="navbar-right"></div>
+            <div class="navbar-left">
+                <span class="logo"
+                    >cu<span class="dot">.</span>cyber<span class="dot">.</span
+                    >club</span
+                >
+                <div class="workspaces">
+                    <button
+                        class="ws-btn active"
+                        data-screen="0"
+                        onclick="switchScreen(0)"
+                    >
+                        <span class="ws-num">1</span> Home
+                    </button>
+                    <button
+                        class="ws-btn"
+                        data-screen="1"
+                        onclick="switchScreen(1)"
+                    >
+                        <span class="ws-num">2</span> Achievements
+                    </button>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <a href="#" class="btn btn-primary">Join Discord</a>
+            </div>
         </div>
+
+        <!-- Desktop -->
         <div id="desktop">
             <div id="screen-0" class="screen"></div>
             <div id="screen-1" class="screen"></div>
