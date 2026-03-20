@@ -38,8 +38,8 @@
 
     <body>
         <!-- Nav :3 -->
-        <div id="navbar">
-            <div class="navbar-left">
+        <div id="taskbar">
+            <div class="taskbar-left">
                 <span class="logo"
                     >cu<span class="dot">.</span>cyber<span class="dot">.</span
                     >club</span
@@ -61,25 +61,24 @@
                     </button>
                 </div>
             </div>
-            <div class="navbar-right">
+            <div class="taskbar-right">
                 <a
                     href="https://discord.gg/eaVneRDJBX"
-                    class="btn btn-primary"
+                    class="btn btn-primary taskbar-join"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >Join Discord</a
+                    >Discord</a
                 >
             </div>
         </div>
 
-        <!-- Desktop -->
         <div id="desktop">
-            <div id="screen-0" class="screen">
+            <div class="screen" id="screen-0">
                 <div class="screen-inner">
                     <div class="hero">
                         <div class="hero-eyebrow">
                             CU Boulder <span class="slash">/</span> Wednesdays
-                            7-8 PM <span class="slash">/</span> DLC 1B20
+                            7–8 PM <span class="slash">/</span> DLC 1B20
                         </div>
                         <h1>
                             CU Boulder's club for
@@ -92,7 +91,7 @@
                             community that welcomes any skill level, major, or
                             background.
                         </p>
-                        <div class="hero-actions">
+                        <!--<div class="hero-actions">
                             <a
                                 href="https://discord.gg/eaVneRDJBX"
                                 class="btn btn-primary"
@@ -100,16 +99,537 @@
                                 rel="noopener noreferrer"
                                 >Join our Discord</a
                             >
-                            <a href="#" class="btn-secondary"
-                                >See what's coming up</a
+                        </div>-->
+                    </div>
+
+                    <div class="layout">
+                        <div class="main-col">
+                            <p class="section-label">Recent sessions</p>
+                            <div
+                                class="recap-grid"
+                                id="past-sessions-container"
                             >
+                                <div class="recap-card skeleton-event">
+                                    <div
+                                        class="skeleton-block skeleton-block--title"
+                                    ></div>
+                                    <div
+                                        class="skeleton-block skeleton-block--meta"
+                                    ></div>
+                                </div>
+                                <div class="recap-card skeleton-event">
+                                    <div
+                                        class="skeleton-block skeleton-block--title"
+                                    ></div>
+                                    <div
+                                        class="skeleton-block skeleton-block--meta"
+                                    ></div>
+                                </div>
+                                <div class="recap-card skeleton-event">
+                                    <div
+                                        class="skeleton-block skeleton-block--title"
+                                    ></div>
+                                    <div
+                                        class="skeleton-block skeleton-block--meta"
+                                    ></div>
+                                </div>
+                                <div class="recap-card skeleton-event">
+                                    <div
+                                        class="skeleton-block skeleton-block--title"
+                                    ></div>
+                                    <div
+                                        class="skeleton-block skeleton-block--meta"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div class="gap">
+                                <p class="section-label">Team</p>
+                                <div class="recap-grid" id="team">
+                                    <div class="recap-card skeleton-event">
+                                        <div
+                                            class="skeleton-block skeleton-block--title"
+                                        ></div>
+                                    </div>
+                                    <div class="recap-card skeleton-event">
+                                        <div
+                                            class="skeleton-block skeleton-block--title"
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="side-col">
+                            <div class="block">
+                                <h3>What is this?</h3>
+                                <p>
+                                    CU Boulder's cyber club. We meet Wednesdays
+                                    7–8 PM in DLC 1B20 for topics on information
+                                    security, offensive and defensive
+                                    techniques, and competitions. Anyone of any
+                                    skill level, major, or background is
+                                    welcome.
+                                </p>
+                            </div>
+
+                            <div class="block">
+                                <div class="count-big">82</div>
+                                <div class="count-label">
+                                    members · 16 active
+                                </div>
+                                <div
+                                    class="member-faces"
+                                    id="member-faces"
+                                ></div>
+                            </div>
+
+                            <div class="block">
+                                <p class="section-label section-label--tight">
+                                    Topics
+                                </p>
+                                <div class="topic-tags">
+                                    <span class="topic-tag">security</span>
+                                    <span class="topic-tag">ctf</span>
+                                    <span class="topic-tag">osint</span>
+                                    <span class="topic-tag">networking</span>
+                                    <span class="topic-tag">cryptography</span>
+                                    <span class="topic-tag">reversing</span>
+                                    <span class="topic-tag">linux</span>
+                                    <span class="topic-tag">fuzzing</span>
+                                    <span class="topic-tag">rf / sdr</span>
+                                </div>
+                            </div>
+
+                            <div class="join-block">
+                                <h3>Want in?</h3>
+                                <p>
+                                    Join our Discord for the latest events,
+                                    announcements, and to connect with the
+                                    community.
+                                </p>
+                                <div class="join-input-row">
+                                    <a
+                                        href="https://discord.gg/eaVneRDJBX"
+                                        class="btn btn-primary btn-full"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >discord.gg/eaVneRDJBX</a
+                                    >
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="layout"></div>
+                </div>
+
+                <div class="screen-footer">
+                    <span class="footer-left"
+                        >cucyberclub.com · CU Boulder</span
+                    >
+                    <ul class="footer-links">
+                        <li>
+                            <a
+                                href="https://github.com/CU-Cybersecurity-Club"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >GitHub</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://discord.gg/eaVneRDJBX"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Discord</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://x.com/cyber_colorado"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Twitter/X</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://campusgroups.colorado.edu/feeds?type=club&type_id=35615&tab=home"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Campus Groups</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/cdn-cgi/l/email-protection#f99a8c9a809b9c8b9a958c9bb99a9695968b989d96d79c9d8c"
+                                >Email</a
+                            >
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div id="screen-1" class="screen"></div>
+
+            <div id="screen-1" class="screen screen--lazy">
+                <div class="screen2-inner">
+                    <div class="screen2-grid">
+                        <!-- ACHIEVEMENTS -->
+                        <div>
+                            <div class="ach-header">
+                                <p class="section-label">What we've done</p>
+                                <h2>Achievements</h2>
+                            </div>
+                            <div class="ach-list">
+                                <div class="ach-item">
+                                    <div class="ach-icon gold">🏆</div>
+                                    <div>
+                                        <div class="ach-name">
+                                            <a
+                                                href="https://www.regis.edu/news/2026/news-releases/03/regis-hosts-16th-annual-rmccdc"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >1st Place - Rocky Mountain CCDC
+                                                2026</a
+                                            >
+                                        </div>
+                                        <div class="ach-desc">
+                                            Team of 7 with no scripts. Worth the
+                                            chaos.
+                                        </div>
+                                        <div class="ach-date">Nov 2025</div>
+                                    </div>
+                                </div>
+                                <div class="ach-item">
+                                    <div class="ach-icon blue">📜</div>
+                                    <div>
+                                        <div class="ach-name">
+                                            5th Place - Cyber 9/12 Washington
+                                        </div>
+                                        <div class="ach-desc">
+                                            The CyberBUFFoons placed 5th, and
+                                            the Tr0j4nBuffs 19th.
+                                        </div>
+                                        <div class="ach-date">March 2025</div>
+                                    </div>
+                                </div>
+                                <div class="ach-item">
+                                    <div class="ach-icon green">🎓</div>
+                                    <div>
+                                        <div class="ach-name">
+                                            <a
+                                                href="https://ctftime.org/event/2604/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                89th Place - DEF CON Qualifier
+                                                2025
+                                            </a>
+                                        </div>
+                                        <div class="ach-desc">
+                                            Tough ride. Team Zero Dark Nerdy
+                                        </div>
+                                        <div class="ach-date">May 2025</div>
+                                    </div>
+                                </div>
+                                <div class="ach-item">
+                                    <div class="ach-icon orange">🥉</div>
+                                    <div>
+                                        <div class="ach-name">
+                                            <a
+                                                href="https://www.regis.edu/news/2025/news-releases/03/rmccdc-winners-release"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Placeholder
+                                            </a>
+                                        </div>
+                                        <div class="ach-desc">Placeholder</div>
+                                        <div class="ach-date">Mar 2025</div>
+                                    </div>
+                                </div>
+                                <div class="ach-item">
+                                    <div class="ach-icon gold">🔥</div>
+                                    <div>
+                                        <div class="ach-name">
+                                            25th Place - NCL Spring 2024
+                                        </div>
+                                        <div class="ach-desc">.</div>
+                                        <div class="ach-date">April 2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- UPCOMING CTFs -->
+                        <div>
+                            <div class="ctf-header">
+                                <p class="section-label">What's next</p>
+                                <h2>Upcoming CTFs</h2>
+                            </div>
+                            <div class="ctf-list">
+                                <!-- Plaid -->
+                                <div class="ctf-item">
+                                    <div class="event-day">
+                                        <span class="dd">4</span>
+                                        <span class="mo">Apr</span>
+                                    </div>
+                                    <div>
+                                        <div class="ctf-name">
+                                            PlaidCTF 2026
+                                        </div>
+                                        <div class="ctf-comp">
+                                            Online ·
+                                            <a
+                                                href="https://plaidctf.com"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >plaidctf.com</a
+                                            >
+                                        </div>
+                                    </div>
+                                    <span class="event-tag">Advanced</span>
+                                </div>
+                                <!-- NCL -->
+                                <div class="ctf-item">
+                                    <div class="event-day">
+                                        <span class="dd">10</span>
+                                        <span class="mo">Apr</span>
+                                    </div>
+                                    <div>
+                                        <div class="ctf-name">
+                                            NCL Spring 2026
+                                        </div>
+                                        <div class="ctf-comp">
+                                            Online ·
+                                            <a
+                                                href="https://nationalcyberleague.org"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >nationalcyberleague.org</a
+                                            >
+                                        </div>
+                                    </div>
+                                    <span class="event-tag">Beginner</span>
+                                </div>
+                                <!-- NCCDC -->
+                                <div class="ctf-item">
+                                    <div class="event-day">
+                                        <span class="dd">24</span>
+                                        <span class="mo">Apr</span>
+                                    </div>
+                                    <div>
+                                        <div class="ctf-name">
+                                            National CCDC 2026
+                                        </div>
+                                        <div class="ctf-comp">
+                                            Online ·
+                                            <a
+                                                href="https://www.nationalccdc.org"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >nationalccdc.org</a
+                                            >
+                                        </div>
+                                    </div>
+                                    <span class="event-tag">Mixed</span>
+                                </div>
+                                <!-- DEFCON Quals -->
+                                <div class="ctf-item">
+                                    <div class="event-day">
+                                        <span class="dd">22</span>
+                                        <span class="mo">May</span>
+                                    </div>
+                                    <div>
+                                        <div class="ctf-name">
+                                            DEF CON CTF Qualifier
+                                        </div>
+                                        <div class="ctf-comp">
+                                            Online ·
+                                            <a
+                                                href="https://defcon.org"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >defcon.org</a
+                                            >
+                                        </div>
+                                    </div>
+                                    <span class="event-tag">Advanced</span>
+                                </div>
+                            </div>
+
+                            <div class="block block--gap-sm">
+                                <h3>Find more</h3>
+                                <p>
+                                    Browse the full CTF calendar on
+                                    <a
+                                        href="https://ctftime.org"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >CTFtime.org</a
+                                    >. Join Discord to coordinate teams before
+                                    each event.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SPONSORS — full width -->
+                        <div class="sponsors-section">
+                            <div class="sponsors-header">
+                                <p class="section-label">Who backs us</p>
+                                <h2>Sponsors</h2>
+                                <p>
+                                    These organizations support what we do. No
+                                    strings, no branding requirements — just
+                                    good people who want to see more of this
+                                    exist.
+                                </p>
+                            </div>
+
+                            <div class="sponsors-grid">
+                                <div class="sponsor-card">
+                                    <div
+                                        class="sponsor-logo sponsor-logo--bhis"
+                                    >
+                                        BHIS
+                                    </div>
+                                    <div class="sponsor-name">
+                                        Black Hills InfoSec
+                                    </div>
+                                    <div class="sponsor-tier">Sponsor</div>
+                                </div>
+                                <div class="sponsor-card sponsor-card--empty">
+                                    <div
+                                        class="sponsor-logo sponsor-logo--empty"
+                                    >
+                                        ?
+                                    </div>
+                                    <div class="sponsor-name">Open slot</div>
+                                    <div class="sponsor-tier">Could be you</div>
+                                </div>
+                                <div class="sponsor-card sponsor-card--empty">
+                                    <div
+                                        class="sponsor-logo sponsor-logo--empty"
+                                    >
+                                        ?
+                                    </div>
+                                    <div class="sponsor-name">Open slot</div>
+                                    <div class="sponsor-tier">Could be you</div>
+                                </div>
+                                <div class="sponsor-card sponsor-card--empty">
+                                    <div
+                                        class="sponsor-logo sponsor-logo--empty"
+                                    >
+                                        ?
+                                    </div>
+                                    <div class="sponsor-name">Open slot</div>
+                                    <div class="sponsor-tier">Could be you</div>
+                                </div>
+                            </div>
+
+                            <div class="sponsor-cta">
+                                <div class="sponsor-cta-text">
+                                    <h4>Interested in sponsoring?</h4>
+                                    <p>
+                                        We're CU Boulder's cyber club —
+                                        workshops, CTFs, and a growing community
+                                        of students. Reach out and let's talk.
+                                    </p>
+                                </div>
+                                <a
+                                    href="/cdn-cgi/l/email-protection#0d6e786e746f687f6e61786f4d6e6261627f6c696223686978"
+                                    class="btn btn-primary btn-nowrap"
+                                    >Get in touch</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="screen-footer">
+                    <span class="footer-left"
+                        >cucyberclub.com · CU Boulder</span
+                    >
+                    <ul class="footer-links">
+                        <li>
+                            <a
+                                href="https://github.com/CU-Cybersecurity-Club"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >GitHub</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://discord.gg/eaVneRDJBX"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Discord</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://x.com/cyber_colorado"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Twitter/X</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://campusgroups.colorado.edu/feeds?type=club&type_id=35615&tab=home"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Campus Groups</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/cdn-cgi/l/email-protection#046771677d6661766768716644676b686b7665606b2a616071"
+                                >Email</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /desktop -->
         </div>
-        <script></script>
+
+        <script
+            data-cfasync="false"
+            src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+        ></script>
+        <script
+            defer
+            src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"
+        ></script>
+        <script
+            defer
+            src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"
+        ></script>
+        <script
+            defer
+            src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"
+        ></script>
+
+        <script defer src="js/index.js"></script>
+
+        <script>
+            let current = 0;
+            const desktop = document.getElementById("desktop");
+            const btns = document.querySelectorAll(".ws-btn");
+
+            function switchScreen(idx) {
+                current = idx;
+                desktop.style.transform = `translateX(-${idx * 100}vw)`;
+                btns.forEach((b, i) => b.classList.toggle("active", i === idx));
+                const target = document.getElementById("screen-" + idx);
+                target.scrollTop = 0;
+                target.classList.remove("screen--lazy");
+            }
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "1") switchScreen(0);
+                if (e.key === "2") switchScreen(1);
+            });
+        </script>
     </body>
 </html>
